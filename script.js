@@ -2,10 +2,31 @@
 const addEmployeesBtn = document.querySelector('#add-employees-btn');
 
 // Collect employee data
-const collectEmployees = function() {
-  // TODO: Get user input to create and return an array of employee objects
+// TODO: Get user input to create and return an array of employee objects
+function collectEmployees () {
+  const employees = [];
 
+  let addEmployee = true;
+  while (addEmployee) {
+    const firstName = prompt("Enter Employee First Name:");
+    const lastName = prompt("Enter Employee Last Name:");
+    const salary = prompt("Enter Employee Salary:");
+    salary = isNaN(Number(salary)) ? 0 : Number(salary);
+  
+    employees.push({
+      firstName: firstName,
+      lastName: lastName,
+      salary: salary
+    });
+  
+    const addAnother = prompt("Do you want to add another employee? (yes/no)");
+    addEmployee = addAnother.toLowerCase() === 'yes';
+  }
+  
+  return employees;
+  
 }
+
 
 // Display the average salary
 const displayAverageSalary = function(employeesArray) {
