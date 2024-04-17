@@ -10,7 +10,7 @@ function collectEmployees () {
   while (addEmployee) {
     const firstName = prompt("Enter Employee First Name:");
     const lastName = prompt("Enter Employee Last Name:");
-    const salary = prompt("Enter Employee Salary:");
+    let salary = prompt("Enter Employee Salary:");
     salary = isNaN(Number(salary)) ? 0 : Number(salary);
   
     employees.push({
@@ -19,8 +19,8 @@ function collectEmployees () {
       salary: salary
     });
   
-    const addAnother = prompt("Do you want to add another employee? (yes/no)");
-    addEmployee = addAnother.toLowerCase() === 'yes';
+    addEmployee = confirm("Do you want to add another employee?");
+    
   }
   
   return employees;
