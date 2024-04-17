@@ -26,26 +26,24 @@ function collectEmployees () {
 
 // Display the average salary
 const displayAverageSalary = function(employeesArray) {
-  const employees = [];
 
   let totalSalary = 0;
-  for (let employee of employees) {
+  for (let employee of employeesArray) {
   totalSalary += employee.salary;
 }
 
-const totalEmployees = employees.length;
+const totalEmployees = employeesArray.length;
 const averageSalary = totalSalary / totalEmployees;
 
 console.log (`Average Salary: ${averageSalary.toFixed(2)} for ${totalEmployees} employees`);
 }
 
-// Select a random employee
 const getRandomEmployee = function(employeesArray) {
-  const employees = [];
-  const randomIndex = Math.floor(Math.random() * employees.length);
-  const randomEmployee = employees[randomIndex];
 
-  console.log (`Random Employee Drawing Winner: ${randomEmployee}`);
+  const randomIndex = Math.floor(Math.random() * employeesArray.length);
+  const randomEmployee = employeesArray[randomIndex];
+
+  console.log (`Random Employee Drawing Winner: First Name ${randomEmployee.firstName}, Last Name: ${randomEmployee.lastName}, Salary: ${randomEmployee.salary}`);
 
 }
 
@@ -91,7 +89,7 @@ const displayEmployees = function(employeesArray) {
 }
 
 const trackEmployeeData = function() {
-  const employees = collectEmployees();
+  const employees = collectEmployees(); // [EMPLOYEEDATA]
 
   console.table(employees);
 
